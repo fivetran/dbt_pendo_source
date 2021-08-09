@@ -1,0 +1,36 @@
+config-version: 2
+
+name: 'pendo_source'
+version: '0.1.0'
+
+require-dbt-version: ">=0.20.0"
+
+models: 
+  pendo_source:
+    tmp:
+      +materialized: view
+    +materialized: table
+    +schema: stg_pendo
+
+vars:
+  pendo_source:
+    account_application_history: "{{ source('pendo', 'account_application_history') }}"
+    account_history: "{{ source('pendo', 'account_history') }}"
+    application_history: "{{ source('pendo', 'application_history') }}"
+    event: "{{ source('pendo', 'event') }}"
+    feature_element_path_rule_history: "{{ source('pendo', 'feature_element_path_rule_history') }}"
+    feature_event: "{{ source('pendo', 'feature_event') }}"
+    feature_history: "{{ source('pendo', 'feature_history') }}"
+    fivetran_audit: "{{ source('pendo', 'fivetran_audit') }}"
+    group: "{{ source('pendo', 'group') }}"
+    guide_event: "{{ source('pendo', 'guide_event') }}"
+    guide_history: "{{ source('pendo', 'guide_history') }}"
+    guide_step_history: "{{ source('pendo', 'guide_step_history') }}"
+    page_event: "{{ source('pendo', 'page_event') }}"
+    page_history: "{{ source('pendo', 'page_history') }}"
+    page_rule_history: "{{ source('pendo', 'page_rule_history') }}"
+    poll: "{{ source('pendo', 'poll') }}"
+    poll_event: "{{ source('pendo', 'poll_event') }}"
+    step_history: "{{ source('pendo', 'step_history') }}"
+    step_poll_history: "{{ source('pendo', 'step_poll_history') }}"
+    user: "{{ source('pendo', 'user') }}"
