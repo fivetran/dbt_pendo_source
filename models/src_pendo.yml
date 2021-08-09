@@ -14,4 +14,21 @@ sources:
 
 
     tables:
+      - name: account_application_history
+      - name: account_history
       - name: application_history
+      - name: event
+      - name: feature_element_path_rule_history
+      - name: feature_event
+      - name: feature_history
+      - name: group
+      - name: guide_event
+      - name: guide_history
+      - name: guide_step_history
+      - name: page_event
+      - name: page_history
+      - name: page_rule_history
+      - name: poll
+      - name: poll_event
+      - name: step_poll_history
+      - name: user

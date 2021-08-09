@@ -31,6 +31,5 @@ vars:
     page_rule_history: "{{ source('pendo', 'page_rule_history') }}"
     poll: "{{ source('pendo', 'poll') }}"
     poll_event: "{{ source('pendo', 'poll_event') }}"
-    step_history: "{{ source('pendo', 'step_history') }}"
     step_poll_history: "{{ source('pendo', 'step_poll_history') }}"
     user: "{{ source('pendo', 'user') }}"
