@@ -22,7 +22,22 @@ fields as (
 final as (
     
     select 
-    -- rename here
+        id as feature_id,
+        app_id,
+        created_at,
+        created_by_user_id,
+        dirty as is_dirty,
+        group_id,
+        is_core_event,
+        last_updated_at,
+        last_updated_by_user_id,
+        name as feature_name,
+        page_id,
+        root_version_id,
+        stable_version_id,
+        valid_through,
+        _fivetran_synced
+
     from fields
 )
 

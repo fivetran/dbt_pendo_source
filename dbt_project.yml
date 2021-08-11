@@ -21,7 +21,6 @@ vars:
     feature_element_path_rule_history: "{{ source('pendo', 'feature_element_path_rule_history') }}"
     feature_event: "{{ source('pendo', 'feature_event') }}"
     feature_history: "{{ source('pendo', 'feature_history') }}"
-    fivetran_audit: "{{ source('pendo', 'fivetran_audit') }}"
     group: "{{ source('pendo', 'group') }}"
     guide_event: "{{ source('pendo', 'guide_event') }}"
     guide_history: "{{ source('pendo', 'guide_history') }}"

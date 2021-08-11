@@ -14,6 +14,8 @@
     {"name": "visitor_id", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('pendo__event_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

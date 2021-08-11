@@ -22,7 +22,16 @@ fields as (
 final as (
     
     select 
-    -- rename here
+        id as group_id,
+        app_id,
+        created_at,
+        created_by_user_id,
+        description,
+        last_updated_at,
+        last_updated_by_user_id,
+        name as group_name,
+        _fivetran_synced
+
     from fields
 )
 

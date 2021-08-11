@@ -15,13 +15,191 @@ sources:
 
     tables:
       - name: account_application_history
+        description: how relevant is multi-app stuff?
+
       - name: account_history
+        description: >
+          Table capturing the historical records of each account utilizing your product via Pendo. 
+          Note that this table may contain custom metadata columns which can be passed through via `pendo__account_history_pass_through_columns`.
+        columns:
+          - name: id
+            description: Unique identifier of the account.
+          - name: first_visit
+            description: The timestamp (UTC) of when the account or visitor was created. 
+          - name: id_hash
+            description: 32-bit hash of the visitor ID. 
+          - name: last_updated_at
+            description: The timestamp (UTC) of when the account was last updated.
+          - name: last_visit
+            description: The timestamp (UTC) of when Pendo last recorded an event for the account.
+
       - name: application_history
+        description: Table capturing changes to your tracked application(s). TODO
+        columns:
+          - name: agent_policy_prod
+            description: Production application policy.
+          - name: agent_policy_staging
+            description: Staging application policy.
+          - name: agent_version_prod
+            description: Version of the production app.
+          - name: agent_version_staging
+            description: Version of the staging app. 
+          - name: application_flags_cname
+            description: >
+              Boolean that is true if CNAMEs are configured. CNAMES allows you to create hostnames under your own 
+              application’s domain which will be used in place of Pendo hostnames for both sending events and 
+              downloading guide content
+          - name: application_flags_disabled
+            description: Boolean that is false if the application is disabled.
+          - name: application_flags_guide_localization
+            description: Boolean that is true if the pendo subscription has guide localization enabled. 
+          - name: application_flags_guide_widget
+          - name: application_flags_onboarding
+          - name: application_flags_prevent_code_injection
+          - name: application_flags_show_guides_to_anon
+          - name: application_flags_xhr_timings
+          - name: created_at
+            description: Timestamp of when the application version record was created. 
+          - name: created_by_user_id
+            description: Foreign key referencing the `USER` who created the application.
+          - name: description
+            description: Description of the application. 
+          - name: disabled_at
+            description: Timestamp of when the application version was disabled. 
+          - name: display_name
+            description: Display name of the application. 
+          - name: event_count
+            description: Count of events tracked in this application. 
+          - name: event_rate
+          - name: first_event_time
+          - name: guide_css_url
+          - name: icon_url
+          - name: id
+            description: Unique ID of the application.
+          - name: integrated
+          - name: is_deleted
+          - name: last_updated_at
+          - name: last_updated_by_user_id
+          - name: marked_for_deletion_at
+          - name: name
+          - name: datatype
+          - name: platform
+          - name: push_application_id
+          - name: record_until
+          - name: sampling_rate
+          - name: starting_event_time
+          - name: store_url
+          - name: subscription_id
+
       - name: event
+        description: Table capturing all recorded click and pageview events (tagged or untagged).
+        columns:
+          - name: account_id
+            description: Foreign key referencing the `ACCOUNT` associated with the event, if any.
+          - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the event was tracked in.
+          - name: num_events
+            description: Number of events tracked for this unique combination of day/hour, visitorId, accountId, server name, and IP address.
+          - name: num_minutes
+            description: Number of unique minutes of activity tracked for this unique combination of day/hour, visitorId, accountId, server name, and IP address.
+          - name: page_id
+            description: Foreign key referencing the `PAGE` that the event occurred on.
+          - name: remote_ip
+            description: The IP address of the event triggerer.
+          - name: server_name
+            description: Name of the server (your website) on which the event was tracked.
+          - name: timestamp
+            description: Day/hour-part timestamp of when the event occurred.
+          - name: user_agent
+            description: String identifying the browser and operating system on which the event was triggered.
+          - name: visitor_id
+            description: Foreign key referencing the `VISITOR` who triggered the event. 
+
       - name: feature_element_path_rule_history
+        description: TODO - remove!
+
       - name: feature_event
+        description: Table capturing all recorded click events matching tagged features.
+        columns:
+          - name: account_id
+            description: Foreign key referencing the `ACCOUNT` associated with the event, if any.
+          - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the event was tracked in.
+          - name: feature_id
+            description: Foreign key referencing the `FEATURE` that the event is tagged with.
+          - name: num_events
+            description: Number of feature events tracked for this unique combination of day/hour, visitorId, accountId, server name, and IP address.
+          - name: num_minutes
+            description: Number of feature events minutes tracked for this unique combination of day/hour, visitorId, accountId, server name, and IP address.
+          - name: remote_ip
+            description: The IP address of the event triggerer.
+          - name: server_name
+            description: Name of the server (your website) on which the event was tracked.
+          - name: timestamp
+            description: Day/hour-part timestamp of when the event occurred.
+          - name: user_agent
+            description: String identifying the browser and operating system on which the event was triggered.
+          - name: visitor_id
+            description: Foreign key referencing the `VISITOR` who triggered the event. 
+
       - name: feature_history
+        description: Table capturing historical records of features in Pendo.
+        columns:
+          - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the feature is a part of.
+          - name: color
+            description: Color value associated with the Feature. For visualization in Paths and Funnels.
+          - name: created_at
+            description: Timestamp of when the feature was created. 
+          - name: created_by_user_id
+            description: Foreign key referencing the `USER` that created the feature.
+          - name: dirty
+            description: Boolean value returned if feature is processing at the time of request.
+          - name: group_id
+            description: Foreign key referencing the `GROUP` (product area) that the feature is tagged under.
+          - name: id
+            description: Unique identifier of the feature.
+          - name: is_core_event
+            description: Boolean that is true if the feature is tagged as a core event/key feature of the product.
+          - name: last_updated_at
+            description: Timestamp of when the feature was last updated.
+          - name: last_updated_by_user_id
+            description: Foreign key referencing the `USER` that last updated the feature.
+          - name: name
+            description: Name of the feature.
+          - name: page_id
+            description: Foreign key referencing the `PAGE` that the feature is placed on.
+          - name: root_version_id
+            description: The unique identifier of the root entity, which nominally matches the public id field of the feature.
+          - name: stable_version_id
+            description: The unique identifier for the current version of the feature.
+          - name: valid_through
+            description: Timestamp that indicates when data was last processed.
+
       - name: group
+        description: Table capturing the product areas.
+        columns:
+          - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the product area lives in.
+          - name: color
+            description: Color associated with the product area in the pendo UI.
+          - name: created_at
+            description: Timestamp of when the product area was created.
+          - name: created_by_user_id
+            description: Foreign key referencing the `USER` who created the product area.
+          - name: description
+            description: Description of the product area.
+          - name: id
+            description: Unique identifier of the product area. 
+          - name: last_updated_at
+            description: Timestamp of when the product area was last updated.
+          - name: last_updated_by_user_id
+            description: Foreign key referencing the `USER` who last updated the product area.
+          - name: length
+            description: The number of features/pages tagged under this product area. The transform package will recalculate this as it is not to be trusted....
+          - name: name
+            description: Name of the product area.
+
       - name: guide_event
       - name: guide_history
       - name: guide_step_history
