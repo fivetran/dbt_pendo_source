@@ -27,7 +27,6 @@ final as (
         feature_id,
         num_events,
         num_minutes,
-        param_parameter,
         remote_ip,
         server_name,
         timestamp as occurred_at,

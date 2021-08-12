@@ -51,7 +51,6 @@ final as (
         last_updated_by_user_id,
 
         name as application_name,
-        datatype,
         platform,
         push_application_id,
 
