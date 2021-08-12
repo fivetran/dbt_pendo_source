@@ -8,7 +8,26 @@ profile: 'integration_tests'
 
 vars:
   pendo_source:
-    pendo_schema: pendo_source_integration_tests
+    account_history: "{{ ref('account_history') }}"
+    application_history: "{{ ref('application_history') }}"
+    event: "{{ ref('event') }}"
+    feature_event: "{{ ref('feature_event') }}"
+    feature_history: "{{ ref('feature_history') }}"
+    group: "{{ ref('group') }}"
+    guide_event: "{{ ref('guide_event') }}"
+    guide_history: "{{ ref('guide_history') }}"
+    guide_step_history: "{{ ref('guide_step_history') }}"
+    page_event: "{{ ref('page_event') }}"
+    page_history: "{{ ref('page_history') }}"
+    page_rule_history: "{{ ref('page_rule_history') }}"
+    user: "{{ ref('user') }}"
+    visitor_history: "{{ ref('visitor_history') }}"
+
+    pendo__event_pass_through_columns: []
+    pendo__feature_event_pass_through_columns: []
+    pendo__page_event_pass_through_columns: []
+    pendo__account_history_pass_through_columns: []
+    pendo__visitor_history_pass_through_columns: []
     
 seeds:
   pendo_source_integration_tests:
