@@ -30,7 +30,7 @@ final as (
         param_parameter,
         remote_ip,
         server_name,
-        timestamp,
+        timestamp as occurred_at,
         user_agent,
         visitor_id,
         _fivetran_synced,

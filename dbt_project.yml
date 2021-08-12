@@ -14,11 +14,9 @@ models:
 
 vars:
   pendo_source:
-    account_application_history: "{{ source('pendo', 'account_application_history') }}"
     account_history: "{{ source('pendo', 'account_history') }}"
     application_history: "{{ source('pendo', 'application_history') }}"
     event: "{{ source('pendo', 'event') }}"
-    feature_element_path_rule_history: "{{ source('pendo', 'feature_element_path_rule_history') }}"
     feature_event: "{{ source('pendo', 'feature_event') }}"
     feature_history: "{{ source('pendo', 'feature_history') }}"
     group: "{{ source('pendo', 'group') }}"
@@ -28,7 +26,5 @@ vars:
     page_event: "{{ source('pendo', 'page_event') }}"
     page_history: "{{ source('pendo', 'page_history') }}"
     page_rule_history: "{{ source('pendo', 'page_rule_history') }}"
-    poll: "{{ source('pendo', 'poll') }}"
-    poll_event: "{{ source('pendo', 'poll_event') }}"
-    step_poll_history: "{{ source('pendo', 'step_poll_history') }}"
     user: "{{ source('pendo', 'user') }}"
+    visitor_history: "{{ source('pendo', 'visitor_history') }}"

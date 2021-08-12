@@ -22,7 +22,12 @@ fields as (
 final as (
     
     select 
-    -- rename here
+    
+        guide_id,
+        guide_last_updated_at,
+        step_id,
+        _fivetran_synced
+
     from fields
 )
 

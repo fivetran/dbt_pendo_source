@@ -115,9 +115,6 @@ sources:
           - name: visitor_id
             description: Foreign key referencing the `VISITOR` who triggered the event. 
 
-      - name: feature_element_path_rule_history
-        description: TODO - remove!
-
       - name: feature_event
         description: Table capturing all recorded click events matching tagged features.
         columns:
@@ -201,12 +198,152 @@ sources:
             description: Name of the product area.
 
       - name: guide_event
+        description: Table capturing events related to guides. Each row is a unique event around `guideAdvanced`, `guideSeen`, `guideDismissed`, `guideSnoozed`, `guideTimeout`, `guideActivity`.
+        columns:
+          - name: account_id
+            description: Foreign key referencing the `ACCOUNT` associated with the event triggerer, if any. 
+          - name: app_id
+            description: Foreign key referencing the `APPLICATION` the event was triggered in.
+          - name: country
+            description: Country in which the guide event was recorded.
+          - name: element_path
+            description: The element path that indicates where the guide can be found (blank if not applicable).
+          - name: event_id
+            description: TODO - figure out?
+          - name: guide_id
+            description: Foreign key referencing the `GUIDE` that was interacted with.
+          - name: guide_step_id
+            description: Foreign key referencing the `STEP` within the guide that was interacted with specifically. 
+          - name: latitude
+            description: Latitude of where the event was triggered from, if location is provided.
+          - name: load_time
+            description: Load time of the guide event.
+          - name: longitude
+            description: Longitude of where the event was triggered from, if location is provided.
+          - name: region
+            description: Geographic region of the triggered event, if location is provided.
+          - name: remote_ip
+            description: IP Address of the event triggerer.
+          - name: server_name
+            description: Name of the server (your website) on which the event was tracked.
+          - name: timestamp
+            description: Day/hour-part timestamp of when the event occurred.
+          - name: type
+            description: Type of guide event that was tracked. Can be one of `guideAdvanced`, `guideSeen`, `guideDismissed`, `guideSnoozed`, `guideTimeout`, `guideActivity`.
+          - name: url
+            description: URL on which the guide event was recorded.
+          - name: user_agent
+            description: String identifying the browser and operating system on which the event was triggered.
+          - name: visitor_id
+            description: Foreign key referencing the `VISITOR` who triggered the event.
+
       - name: guide_history
+        description: Table capturing historical records of guides in pendo.
+        columns:
+          - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the guide belongs in.
+          - name: attribute_badge_can_change_badge_color
+            description: Boolean that is true if the guide badge's color can be changed. 
+          - name: attribute_badge_color
+          - name: attribute_badge_height
+          - name: attribute_badge_image_url
+          - name: attribute_badge_is_only_show_once
+          - name: attribute_badge_name
+          - name: attribute_badge_offset_left
+          - name: attribute_badge_offset_right
+          - name: attribute_badge_offset_top
+          - name: attribute_badge_position
+          - name: attribute_badge_show_on_event
+          - name: attribute_badge_use_hover
+          - name: attribute_badge_width
+          - name: attribute_device_type
+          - name: attribute_priority
+          - name: attribute_type
+          - name: created_at
+            description: Timestamp of when the guide was created.
+          - name: created_by_user_id
+            description: Foreign key referencing the `USER` who created the guide. 
+          - name: email_state
+          - name: id
+          - name: is_multi_step
+          - name: is_training
+          - name: last_updated_at
+          - name: last_updated_by_user_id
+          - name: launch_method
+          - name: name
+          - name: published_at
+          - name: recurrence
+          - name: recurrence_eligibility_window
+          - name: reset_at
+          - name: root_version_id
+          - name: stable_version_id
+          - name: state
+
       - name: guide_step_history
+        columns:
+          - name: guide_id
+          - name: guide_last_updated_at
+          - name: step_id
+
       - name: page_event
+        columns:
+          - name: account_id
+          - name: app_id
+          - name: num_events
+          - name: num_minutes
+          - name: page_id
+          - name: param_parameter
+          - name: remote_ip
+          - name: server_name
+          - name: timestamp
+          - name: user_agent
+          - name: visitor_id
+
       - name: page_history
+        columns:
+          - name: app_id
+          - name: color
+          - name: created_at
+          - name: created_by_user_id
+          - name: dirty
+          - name: group_id
+          - name: id
+          - name: last_updated_at
+          - name: last_updated_by_user_id
+          - name: name
+          - name: root_version_id
+          - name: stable_version_id
+          - name: valid_through
+
       - name: page_rule_history
-      - name: poll
-      - name: poll_event
-      - name: step_poll_history
+        columns:
+          - name: designer_hint
+          - name: page_id
+          - name: page_last_updated_at
+          - name: parsed_rule
+          - name: rule
+
       - name: user
+        columns:
+          - name: deleted_at
+          - name: first_name
+          - name: id
+          - name: last_name
+          - name: role
+          - name: user_type
+          - name: username
+
+      - name: visitor_history
+        columns:
+          - name: account_id
+          - name: first_visit
+          - name: id
+          - name: id_hash
+          - name: last_browser_name
+          - name: last_browser_version
+          - name: last_operating_system
+          - name: last_server_name
+          - name: last_updated_at
+          - name: last_user_agent
+          - name: last_visit
+          - name: n_id

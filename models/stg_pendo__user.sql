@@ -22,7 +22,16 @@ fields as (
 final as (
     
     select 
-    -- rename here
+
+        id as user_id,
+        deleted_at,
+        first_name,
+        last_name,
+        role,
+        user_type,
+        username,
+        _fivetran_synced
+
     from fields
 )
 

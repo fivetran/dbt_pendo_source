@@ -22,7 +22,46 @@ fields as (
 final as (
     
     select 
-    -- rename here
+        id as guide_id,
+        name as guide_name,
+        app_id,
+
+        attribute_badge_can_change_badge_color,
+        attribute_badge_color,
+        attribute_badge_height,
+        attribute_badge_image_url,
+        attribute_badge_is_only_show_once,
+        attribute_badge_name,
+        attribute_badge_offset_left,
+        attribute_badge_offset_right,
+        attribute_badge_offset_top,
+        attribute_badge_position,
+        attribute_badge_show_on_event,
+        attribute_badge_use_hover,
+        attribute_badge_width,
+        attribute_device_type,
+        attribute_priority,
+
+        attribute_type,
+        created_at,
+        created_by_user_id,
+        email_state,
+        
+        is_multi_step,
+        is_training,
+        last_updated_at,
+        last_updated_by_user_id,
+        launch_method,
+        
+        published_at,
+        recurrence,
+        recurrence_eligibility_window,
+        reset_at,
+        root_version_id,
+        stable_version_id,
+        state,
+        _fivetran_synced
+
     from fields
 )
 

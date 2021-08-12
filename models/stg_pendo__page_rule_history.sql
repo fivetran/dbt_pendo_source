@@ -22,7 +22,14 @@ fields as (
 final as (
     
     select 
-    -- rename here
+
+        designer_hint,
+        page_id,
+        page_last_updated_at,
+        parsed_rule,
+        rule,
+        _fivetran_synced
+        
     from fields
 )
 
