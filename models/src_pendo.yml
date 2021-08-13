@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: pendo
-    database: "{{ var ('pendo_database', target.database) }}"
+    database: "{% if target.type != 'spark'%}{{ var('pendo_database', target.database) }}{% endif %}"
     schema: "{{ var ('pendo_schema', 'pendo') }}"
 
     loader: fivetran
