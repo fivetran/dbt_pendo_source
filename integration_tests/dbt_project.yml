@@ -41,15 +41,19 @@ seeds:
     application_history:
       +column_types:
         subscription_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+        last_updated_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+        created_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
     guide_history:
       +column_types:
         created_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+        last_updated_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
     account_history:
       +column_types:
         id_hash: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
     feature_history:
       +column_types:
         last_updated_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+        created_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
     group:
       +column_types:
         last_updated_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
