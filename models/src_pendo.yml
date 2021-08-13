@@ -14,8 +14,6 @@ sources:
 
 
     tables:
-      - name: account_application_history
-        description: how relevant is multi-app stuff?
 
       - name: account_history
         description: >
@@ -245,64 +243,113 @@ sources:
           - name: attribute_badge_can_change_badge_color
             description: Boolean that is true if the guide badge's color can be changed. 
           - name: attribute_badge_color
+            description: Hex color code of the guide badge.
           - name: attribute_badge_height
+            description: Height of the guide badge. 
           - name: attribute_badge_image_url
+            description: URL of the badge image. 
           - name: attribute_badge_is_only_show_once
+            description: Boolean that is true if the badge is only shown once.
           - name: attribute_badge_name
+            description: Name of the guide badge.
           - name: attribute_badge_offset_left
+            description: How far from the left the badge is offset in relation to the target element. 
           - name: attribute_badge_offset_right
+            description: How far from the right the badge is offset in relation to the target element. 
           - name: attribute_badge_offset_top
+            description: How far from the top the badge is offset in relation to the target element. 
           - name: attribute_badge_position
+            description: This determines where the badge appears in relation to the target element. Choose Top-right, Top-left, or inline.
           - name: attribute_badge_show_on_event
           - name: attribute_badge_use_hover
+            description: Boolean that is true if the badge is activated via hovering.
           - name: attribute_badge_width
+            description: Width of the guide badge.
           - name: attribute_device_type
+            description: The current state of the guide - 'all', 'desktop', 'mobile'.
           - name: attribute_priority
+            description: Position of the Guide as it appears in the launcher/guide center.
           - name: attribute_type
           - name: created_at
             description: Timestamp of when the guide was created.
           - name: created_by_user_id
             description: Foreign key referencing the `USER` who created the guide. 
           - name: email_state
+            description: The current state of the guide. published, staged, draft, and disabled. Deprecated version of `state`. 
           - name: id
+            description: Unique identifier of the guide.
           - name: is_multi_step
+            description: Returns true if guide has multiple steps (walkthrough).
           - name: is_training
+            description: Boolean that is true if the guide is for training.
           - name: last_updated_at
+            description: Timestamp of when the guide was last updated.
           - name: last_updated_by_user_id
+            description: Foreign key referencing the `USER` who last updated the guide. 
           - name: launch_method
+            description: Activation method of the guide (ie auto, badge, dom).
           - name: name
+            description: Name of the guide. 
           - name: published_at
+            description: Timestamp of when the guide was officially published.
           - name: recurrence
+            description: How frequent the guide is scheduled to recur. 
           - name: recurrence_eligibility_window
+            description: Eligible interval in which guides can be repeatedly activated. 
           - name: reset_at
+            description: Timestamp of when the guide was reset for visitors. 
           - name: root_version_id
+            description: The unique identifier of the root entity, which nominally matches the public id field of the guide.
           - name: stable_version_id
+            description: The unique identifier for the current version of the feature.
           - name: state
+            description: The current state of the guide. published, staged, draft, and disabled.
 
       - name: guide_step_history
+        description: Table associating guides with the steps they include. 
         columns:
           - name: guide_id
+            description: Foreign key referencing the `GUIDE` with steps.
           - name: guide_last_updated_at
+            description: Timestamp of when the guide was last updated. 
           - name: step_id
+            description: Foreign key referencing the `STEP` that the guide includes. 
 
       - name: page_event
+        description: Table capturing all recorded pageviews matching tagged pages.
         columns:
           - name: account_id
+            description: Foreign key referencing the `ACCOUNT` associated with the event, if any.
           - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the event was tracked in.
           - name: num_events
+            description: Number of pageviews matching tagged pages.
           - name: num_minutes
+            description: >
+              Page time on site calculations are in 1 minute buckets. So if you are logged in to your app as a user (Pendo Visitor) 
+              when you load a page’s URL, 1 minute time on site is calculated. Every time you click on that page, the time on site 
+              calculation keeps running and totaling the successive minutes you’ve spent on that page.
+              See https://support.pendo.io/hc/en-us/articles/360032203171-How-is-Site-Page-Interaction-Calculated-.
           - name: page_id
-          - name: param_parameter
+            description: Foreign key referencing the `PAGE` being loaded.
           - name: remote_ip
+            description: The IP address of the event triggerer.
           - name: server_name
+            description: Name of the server (your website) on which the event was tracked.
           - name: timestamp
+            description: Day/hour-part timestamp of when the event occurred.
           - name: user_agent
+            description: String identifying the browser and operating system on which the event was triggered.
           - name: visitor_id
+            description: Foreign key referencing the `VISITOR` who triggered the event. 
 
       - name: page_history
+        description: Table capturing the historical records of pages tagged in Pendo.
         columns:
           - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the page is associated with.
           - name: color
+            description: Color associated with the product area in the pendo UI.
           - name: created_at
           - name: created_by_user_id
           - name: dirty
