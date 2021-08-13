@@ -13,7 +13,7 @@ vars:
     event: "{{ ref('event') }}"
     feature_event: "{{ ref('feature_event') }}"
     feature_history: "{{ ref('feature_history') }}"
-    group: "{{ ref('group') }}"
+    group: "{{ ref('group_data') }}"
     guide_event: "{{ ref('guide_event') }}"
     guide_history: "{{ ref('guide_history') }}"
     guide_step_history: "{{ ref('guide_step_history') }}"
@@ -54,7 +54,7 @@ seeds:
       +column_types:
         last_updated_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         created_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    group:
+    group_data:
       +column_types:
         last_updated_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         color: "{{ 'string' if target.name in ('bigquery', 'spark') else 'varchar' }}"
