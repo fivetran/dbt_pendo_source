@@ -23,6 +23,7 @@ final as (
     
     select 
         id as account_id,
+        last_updated_at,
         id_hash as account_id_hash,
         first_visit as first_visit_at,
         last_visit as last_visit_at
