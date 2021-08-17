@@ -1,1 +1,2 @@
-select * from {{ var('event') }}
+select * 
+from {{ var('event') }}

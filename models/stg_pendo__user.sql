@@ -27,7 +27,6 @@ final as (
         deleted_at,
         first_name,
         last_name,
-        role,
         user_type,
         username,
         _fivetran_synced
@@ -35,4 +34,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

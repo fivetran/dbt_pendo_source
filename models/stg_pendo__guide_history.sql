@@ -26,19 +26,15 @@ final as (
         name as guide_name,
         app_id,
         state,
-  
-        attribute_device_type as device_type, 
-
+        attribute_device_type as device_type,
         attribute_type,
         created_at,
         created_by_user_id,
-        
         is_multi_step,
         is_training,
         last_updated_at,
         last_updated_by_user_id,
         launch_method,
-        
         published_at,
         recurrence,
         recurrence_eligibility_window,
@@ -51,4 +47,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

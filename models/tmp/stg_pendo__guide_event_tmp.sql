@@ -1,1 +1,2 @@
-select * from {{ var('guide_event') }}
+select * 
+from {{ var('guide_event') }}

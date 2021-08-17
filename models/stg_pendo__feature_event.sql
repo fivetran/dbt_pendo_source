@@ -38,7 +38,9 @@ final as (
 
         --The below macro adds the fields defined within your pendo__feature_event_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('pendo__feature_event_pass_through_columns') }}
+        
     from fields
 )
 
-select * from final
+select * 
+from final

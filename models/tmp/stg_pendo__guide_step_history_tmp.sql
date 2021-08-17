@@ -1,1 +1,2 @@
-select * from {{ var('guide_step_history') }}
+select * 
+from {{ var('guide_step_history') }}
