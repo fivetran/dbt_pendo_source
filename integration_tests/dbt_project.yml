@@ -22,6 +22,8 @@ vars:
     page_rule_history: "{{ ref('page_rule_history') }}"
     user: "{{ ref('user') }}"
     visitor_history: "{{ ref('visitor_history') }}"
+    poll: "{{ ref('poll') }}"
+    poll_event: "{{ ref('poll_event') }}"
 
     pendo__event_pass_through_columns: []
     pendo__feature_event_pass_through_columns: []
