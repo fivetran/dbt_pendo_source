@@ -394,3 +394,37 @@ sources:
           - name: last_user_agent
           - name: last_visit
           - name: n_id
+
+      - name: poll
+        columns:
+          - name: attribute_display
+          - name: attribute_follow_up
+          - name: attribute_max_length
+          - name: attribute_placeholder
+          - name: attribute_type
+          - name: id
+          - name: question
+          - name: reset_at
+
+      - name: poll_event
+        columns:
+          - name: account_id
+          - name: app_id
+          - name: country
+          - name: element_path
+          - name: event_id
+          - name: guide_id
+          - name: guide_step_id
+          - name: latitude
+          - name: load_time
+          - name: longitude
+          - name: poll_id
+          - name: poll_response
+          - name: region
+          - name: remote_ip
+          - name: server_name
+          - name: timestamp
+          - name: type
+          - name: url
+          - name: user_agent
+          - name: visitor_id
