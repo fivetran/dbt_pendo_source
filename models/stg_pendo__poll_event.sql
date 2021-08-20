@@ -38,7 +38,7 @@ final as (
         region,
         remote_ip,
         server_name,
-        timestamp,
+        timestamp as occurred_at,
         type,
         url,
         user_agent,
