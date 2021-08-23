@@ -428,3 +428,9 @@ sources:
           - name: url
           - name: user_agent
           - name: visitor_id
+
+      - name: visitor_account_history
+        columns:
+          - name: account_id
+          - name: visitor_id
+          - name: visitor_last_updated_at
