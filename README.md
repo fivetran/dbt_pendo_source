@@ -1,3 +1,4 @@
+[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![dbt logo and version](https://img.shields.io/static/v1?logo=dbt&label=dbt-version&message=0.20.x&color=orange)
 # Pendo (Source)
 
 This package models Pendo data from [Fivetran's connector](https://fivetran.com/docs/applications/pendo). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/pendo#schemainformation).
@@ -36,7 +37,9 @@ vars:
 
 ### Passthrough Columns
 
-Additionally, this package includes all source columns defined in the macros folder. We highly recommend including custom fields in this package as models now only bring in the standard fields for the `EVENT`, `FEATURE_EVENT`, `PAGE_EVENT`, `ACCOUNT_HISTORY`, and `VISITOR_HISTORY` tables. You can add more columns using our passthrough column variables. These variables allow the passthrough fields to be aliased (`alias`) and casted (`transform_sql`) if desired, although it is not required. Datatype casting is configured via a SQL snippet within the `transform_sql` key. You may add the desired SQL snippet while omitting the `as field_name` part of the casting statement - this will be dealt with by the alias attribute - and your custom passthrough fields will be casted accordingly.
+Additionally, this package includes all source columns defined in the macros folder. We highly recommend including custom fields in this package as models now only bring in the standard fields for the `EVENT`, `FEATURE_EVENT`, `PAGE_EVENT`, `ACCOUNT_HISTORY`, and `VISITOR_HISTORY` tables.
+
+You can add more columns using our passthrough column variables. These variables allow the passthrough fields to be aliased (`alias`) and casted (`transform_sql`) if desired, although it is not required. Datatype casting is configured via a SQL snippet within the `transform_sql` key. You may add the desired SQL snippet while omitting the `as field_name` part of the casting statement - this will be dealt with by the alias attribute - and your custom passthrough fields will be casted accordingly.
 
 Use the following format for declaring the respective passthrough variables:
 
@@ -45,16 +48,16 @@ Use the following format for declaring the respective passthrough variables:
 
 vars:
 
-  pendo__event_pass_through_columns:
+  pendo__feature_event_pass_through_columns:
+    - name:           "custom_crazy_field_name"
+      alias:          "normal_field_name"
+  pendo__page_event_pass_through_columns:
     - name:           "property_field_id"
       alias:          "new_name_for_this_field_id"
       transform_sql:  "cast(new_name_for_this_field as int64)"
     - name:           "this_other_field"
       transform_sql:  "cast(this_other_field as string)"
-  pendo__feature_event_pass_through_columns:
-    - name:           "custom_crazy_field_name"
-      alias:          "normal_field_name"
-  pendo__page_event_pass_through_columns:
+  pendo__event_pass_through_columns:
     - name:           "well_named_field_1"
   pendo__account_history_pass_through_columns:
     - name:           "well_named_field_2"
