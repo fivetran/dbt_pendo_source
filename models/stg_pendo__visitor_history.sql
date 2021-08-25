@@ -33,7 +33,6 @@ final as (
         last_updated_at,
         last_user_agent,
         last_visit,
-        {# n_id, #} -- null in our data?
         _fivetran_synced
 
         --The below macro adds the fields defined within your pendo__visitor_history_pass_through_columns variable into the staging model
