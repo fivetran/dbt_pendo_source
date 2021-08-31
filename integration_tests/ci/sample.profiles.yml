@@ -27,6 +27,8 @@ integration_tests:
       port: 5432
       schema: pendo_source_integration_tests
       threads: 8
+      connect_timeout: 60
+      connect_retries: 5
     bigquery:
       type: bigquery
       method: service-account
