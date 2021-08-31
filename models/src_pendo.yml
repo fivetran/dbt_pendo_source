@@ -25,7 +25,7 @@ sources:
           - name: first_visit
             description: The timestamp (UTC) of when the account or visitor was created. 
           - name: id_hash
-            description: 32-bit hash of the visitor ID. 
+            description: 32-bit hash of the account ID. 
           - name: last_updated_at
             description: The timestamp (UTC) of when the account was last updated.
           - name: last_visit
@@ -206,8 +206,7 @@ sources:
             description: Country in which the guide event was recorded.
           - name: element_path
             description: The element path that indicates where the guide can be found (blank if not applicable).
-          - name: event_id
-            description: TODO - figure out?
+          - name: event_id # todo: figure this out?
           - name: guide_id
             description: Foreign key referencing the `GUIDE` that was interacted with.
           - name: guide_step_id
@@ -225,7 +224,7 @@ sources:
           - name: server_name
             description: Name of the server (your website) on which the event was tracked.
           - name: timestamp
-            description: Day/hour-part timestamp of when the event occurred.
+            description: Timestamp of when the event occurred.
           - name: type
             description: Type of guide event that was tracked. Can be one of `guideAdvanced`, `guideSeen`, `guideDismissed`, `guideSnoozed`, `guideTimeout`, `guideActivity`.
           - name: url
@@ -351,86 +350,162 @@ sources:
           - name: color
             description: Color associated with the product area in the pendo UI.
           - name: created_at
+            description: Timestamp of when the page was first created. 
           - name: created_by_user_id
+            description: Foreign key referencing the `USER` who created the page. 
           - name: dirty
+            description: Boolean value returned if page is processing at the time of request.
           - name: group_id
+            description: Foreign key referencing the `GROUP` (product area) that the page is tagged under.
           - name: id
+            description: Unique identifier of the page.
           - name: last_updated_at
+            description: Timestamp of when the page was updated. 
           - name: last_updated_by_user_id
+            description: Foreign key referencing the `USER` who last updated the page. 
           - name: name
+            description: Name of the page as displayed in Pendo. 
           - name: root_version_id
+            description: The unique identifier of the root entity, which nominally matches the public id field of the page.
           - name: stable_version_id
+            description: The unique identifier for the current version of the page.
           - name: valid_through
+            description: Timestamp that indicates when data was last processed.
 
       - name: page_rule_history
+        description: Table capturing historical records of rules associated with pages. 
         columns:
           - name: designer_hint
+            description: String of what the page's url will look like, including site domain. 
           - name: page_id
+            description: Foreign key referencing the `PAGE` that the rule pertains to.
           - name: page_last_updated_at
+            description: Timestamp of when the page was last updated at.
           - name: parsed_rule
+            description: The url rule of the page, completely parsed out. 
           - name: rule
+            description: Bare-bpnes URL rule of the page.
 
       - name: user
+        description: Table capturing internal Pendo users.
         columns:
           - name: deleted_at
+            description: Timestamp of when the user was deleted at.
           - name: first_name
+            description: First name of the user.
           - name: id
+            description: Unique identifier of the user.
           - name: last_name
+            description: Last name of the user. 
           - name: role
+            description: The user's role. This is an integer-type ID that does not point anywhere as of 08/2021.
           - name: user_type
+            description: Type of user. 
           - name: username
+            description: Username of the user, typically their email.
 
       - name: visitor_history
+        description: Table capturing historical records of visitors.
         columns:
           - name: account_id
+            description: >
+              Foreign key referencing the `ACCOUNT` associated with this visitor. Visitors can belong to multiple accounts, however.
+              Refer to `VISITOR_ACCOUNT_HISTORY` for all accounts associated with individual visitors.
           - name: first_visit
+            description: Timestamp of when an event was first captured for the visitor.
           - name: id
+            description: Unique identifier of the visitor.
           - name: id_hash
+            description: 32-bit hash of the visitor ID. 
           - name: last_browser_name
+            description: Most recent browser name.
           - name: last_browser_version
+            description: Most recent browser version.
           - name: last_operating_system
+            description: Most recent operating system.
           - name: last_server_name
+            description: Most recent server name.
           - name: last_updated_at
+            description: Timestamp of when the visitor was last updated.
           - name: last_user_agent
+            description: Most recent user agent (unparsed).
           - name: last_visit
+            description: Timestamp of the user's last visit.
           - name: n_id
+            description: Numeric id for the visitor.
 
       - name: poll
+        description: Table capturing polls administered via Pendo. 
         columns:
           - name: attribute_display
+            description: Type of way to answer (ie select, radio, null for freeform answers).
           - name: attribute_follow_up
+            description: Self-referencing id of the follow-up `POLL` question, if any.
           - name: attribute_max_length
+            description: Max length for the answer, if any.
           - name: attribute_placeholder
           - name: attribute_type
+            description: Type of poll question.
           - name: id
+            description: Unique identifier of the poll.
           - name: question
+            description: The content of the poll question.
           - name: reset_at
+            description: The timestamp when the poll's data was last reset.
 
       - name: poll_event
+        description: Table capturing individual responses to polls.
         columns:
           - name: account_id
+            description: Foreign key referencing the `ACCOUNT` associated with the event, if any.
           - name: app_id
+            description: Foreign key referencing the `APPLICATION` that the event was tracked in.
           - name: country
+            description: Country in which the poll event was recorded.
           - name: element_path
-          - name: event_id
+            description: The element path that indicates where the poll can be found (blank if not applicable).
+          - name: event_id # todo: figure this out?
           - name: guide_id
+            description: Foreign key referencing the `GUIDE` that the poll is a part of.
           - name: guide_step_id
+            description: Foreign key referencing the `GUIDE_STEP` that the poll is a part of.
           - name: latitude
+            description: Latitude of where the event was triggered from, if location is provided. 
           - name: load_time
+            description: Load time of the poll event.
           - name: longitude
+            description: Longitude of where the event was triggered from, if location is provided.
           - name: poll_id
+            description: Foreign key referencing the `POLL` that the event was in response to.
           - name: poll_response
+            description: >
+              Depending on the kind of poll, the content of the poll response. For ratings, this will be an integer,
+              and for freeform text responses, this will be the content. For pick-lists, this will be an ID that does not point anywhere....
           - name: region
+            description: Geographic region of the triggered event, if location is provided.
           - name: remote_ip
+            description: IP Address of the event triggerer.
           - name: server_name
+            description: Name of the server (your website) on which the event was tracked.
           - name: timestamp
+            description: Timestamp of when the poll event was triggered.
           - name: type
+            description: Type of guide event that was tracked. This table only captures poll responses.
           - name: url
+            description: URL on which the poll response was recorded.
           - name: user_agent
+            description: String identifying the browser and operating system on which the event was triggered.
           - name: visitor_id
+            description: Foreign key referencing the `VISITOR` who triggered the event.
 
       - name: visitor_account_history
+        description: >
+          Table of historical records of associations between visitors and accounts. Though the visitor
+          table has an `account_id` column, refer to this table for all potential related accounts.  
         columns:
           - name: account_id
+            description: Foreign key referencing the `ACCOUNT` that the visitor is associated with.
           - name: visitor_id
+            description: Foreign key referencing the `VISITOR` associated with the account. 
           - name: visitor_last_updated_at
+            description: Timestamp of when the visitor was last updated.
