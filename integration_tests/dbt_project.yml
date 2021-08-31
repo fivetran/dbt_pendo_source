@@ -6,6 +6,10 @@ version: '0.1.0'
 require-dbt-version: ">=0.20.0"
 profile: 'integration_tests'
 
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
+    
 vars:
   pendo_source:
     account_history: "{{ ref('account_history') }}"

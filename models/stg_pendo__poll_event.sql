@@ -46,7 +46,6 @@ final as (
         _fivetran_synced,
         {{ dbt_utils.surrogate_key(['visitor_id', 'timestamp', 'account_id', 'server_name', 'remote_ip']) }} as poll_event_key
 
-
     from fields
 )
 
