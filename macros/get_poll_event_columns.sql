@@ -6,7 +6,6 @@
     {"name": "app_id", "datatype": dbt_utils.type_string()},
     {"name": "country", "datatype": dbt_utils.type_string()},
     {"name": "element_path", "datatype": dbt_utils.type_string()},
-    {"name": "event_id", "datatype": dbt_utils.type_string()},
     {"name": "guide_id", "datatype": dbt_utils.type_string()},
     {"name": "guide_step_id", "datatype": dbt_utils.type_string()},
     {"name": "latitude", "datatype": dbt_utils.type_float()},

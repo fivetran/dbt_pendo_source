@@ -27,7 +27,6 @@ final as (
         app_id,
         state,
         attribute_device_type as device_type,
-        attribute_type,
         created_at,
         created_by_user_id,
         is_multi_step,

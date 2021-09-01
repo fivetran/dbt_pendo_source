@@ -32,7 +32,7 @@ sources:
             description: The timestamp (UTC) of when Pendo last recorded an event for the account.
 
       - name: application_history
-        description: Table capturing changes to your tracked application(s). TODO
+        description: Table capturing changes to your tracked application(s).
         columns:
           - name: agent_policy_prod
             description: Production application policy.
@@ -54,7 +54,9 @@ sources:
           - name: application_flags_guide_widget
           - name: application_flags_onboarding
           - name: application_flags_prevent_code_injection
+            description: Boolean that is true if code injection attacks are prevented.
           - name: application_flags_show_guides_to_anon
+            description: Boolean that is true if the application shows guides to anonymous visitors.
           - name: application_flags_xhr_timings
           - name: created_at
             description: Timestamp of when the application version record was created. 
@@ -70,24 +72,32 @@ sources:
             description: Count of events tracked in this application. 
           - name: event_rate
           - name: first_event_time
+            description: Timestamp of when the first event was tracked for this application.
           - name: guide_css_url
           - name: icon_url
           - name: id
             description: Unique ID of the application.
           - name: integrated
+            description: Boolean that is true if the app is integrated.
           - name: is_deleted
+            description: Boolean that is true if the app version is deleted.
           - name: last_updated_at
+            description: Timestamp of when the app was last updated.
           - name: last_updated_by_user_id
+            description: Foreign key referencing the `USER` who last updated the app. 
           - name: marked_for_deletion_at
+            description: Timestamp of when the app was marked for deletion, if at all.
           - name: name
-          - name: datatype
+            description: Title of the application. 
           - name: platform
+            description: Platform on which the application is served. 
           - name: push_application_id
           - name: record_until
           - name: sampling_rate
           - name: starting_event_time
           - name: store_url
           - name: subscription_id
+            description: ID of the pendo subscription.
 
       - name: event
         description: Table capturing all recorded click and pageview events (tagged or untagged).
@@ -191,7 +201,7 @@ sources:
           - name: last_updated_by_user_id
             description: Foreign key referencing the `USER` who last updated the product area.
           - name: length
-            description: The number of features/pages tagged under this product area. The transform package will recalculate this as it is not to be trusted....
+            description: The number of features/pages tagged under this product area. It's not entirely clear how this is calculated and should not be trusted 100%.
           - name: name
             description: Name of the product area.
 
@@ -206,7 +216,6 @@ sources:
             description: Country in which the guide event was recorded.
           - name: element_path
             description: The element path that indicates where the guide can be found (blank if not applicable).
-          - name: event_id # todo: figure this out?
           - name: guide_id
             description: Foreign key referencing the `GUIDE` that was interacted with.
           - name: guide_step_id
@@ -384,7 +393,7 @@ sources:
           - name: parsed_rule
             description: The url rule of the page, completely parsed out. 
           - name: rule
-            description: Bare-bpnes URL rule of the page.
+            description: Bare-bones URL rule of the page.
 
       - name: user
         description: Table capturing internal Pendo users.
@@ -464,7 +473,6 @@ sources:
             description: Country in which the poll event was recorded.
           - name: element_path
             description: The element path that indicates where the poll can be found (blank if not applicable).
-          - name: event_id # todo: figure this out?
           - name: guide_id
             description: Foreign key referencing the `GUIDE` that the poll is a part of.
           - name: guide_step_id

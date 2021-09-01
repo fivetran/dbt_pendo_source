@@ -24,7 +24,7 @@ final as (
     select 
         id as visitor_id,
         account_id,
-        first_visit,
+        first_visit as first_visit_at,
         id_hash as visitor_id_hash,
         last_browser_name,
         last_browser_version,

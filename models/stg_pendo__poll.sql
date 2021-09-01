@@ -24,9 +24,8 @@ final as (
     select 
         id as poll_id,
         attribute_display,
-        attribute_follow_up,
+        attribute_follow_up as follow_up_poll_id,
         attribute_max_length,
-        attribute_placeholder,
         attribute_type,
         question,
         reset_at,

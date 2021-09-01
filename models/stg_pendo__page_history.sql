@@ -25,7 +25,6 @@ final as (
         id as page_id,
         name as page_name,
         app_id,
-        color,
         created_at,
         created_by_user_id,
         dirty as is_dirty,
