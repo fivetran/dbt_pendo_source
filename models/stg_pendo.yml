@@ -97,7 +97,7 @@ models:
       - name: visitor_id
         description: Foreign key referencing the `VISITOR` who triggered the event. 
       - name: event_key
-        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'remote_ip'].
+        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'user_agent', 'server_name', 'remote_ip'].
         tests:
           - unique
           - not_null
