@@ -273,7 +273,7 @@ models:
       - name: root_version_id
         description: The unique identifier of the root entity, which nominally matches the public id field of the guide.
       - name: stable_version_id
-        description: The unique identifier for the current version of the feature.
+        description: The unique identifier for the current version of the guide.
       - name: state
         description: The current state of the guide. published, staged, draft, and disabled.
 
