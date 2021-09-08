@@ -26,7 +26,8 @@ final as (
         last_updated_at,
         id_hash as account_id_hash,
         first_visit as first_visit_at,
-        last_visit as last_visit_at
+        last_visit as last_visit_at,
+        _fivetran_synced
 
         --The below macro adds the fields defined within your pendo__account_history_pass_through_columns variable into the staging model
         {{ fivetran_utils.fill_pass_through_columns('pendo__account_history_pass_through_columns') }}
