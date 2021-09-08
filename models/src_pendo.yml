@@ -30,6 +30,8 @@ sources:
             description: The timestamp (UTC) of when the account was last updated.
           - name: last_visit
             description: The timestamp (UTC) of when Pendo last recorded an event for the account.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: application_history
         description: Table capturing changes to your tracked application(s).
@@ -98,6 +100,8 @@ sources:
           - name: store_url
           - name: subscription_id
             description: ID of the pendo subscription.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: event
         description: Table capturing all recorded click and pageview events (tagged or untagged).
@@ -122,6 +126,8 @@ sources:
             description: String identifying the browser and operating system on which the event was triggered.
           - name: visitor_id
             description: Foreign key referencing the `VISITOR` who triggered the event. 
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: feature_event
         description: Table capturing all recorded click events matching tagged features.
@@ -146,6 +152,8 @@ sources:
             description: String identifying the browser and operating system on which the event was triggered.
           - name: visitor_id
             description: Foreign key referencing the `VISITOR` who triggered the event. 
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: feature_history
         description: Table capturing historical records of features in Pendo.
@@ -180,6 +188,8 @@ sources:
             description: The unique identifier for the current version of the feature.
           - name: valid_through
             description: Timestamp that indicates when data was last processed.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: group
         description: Table capturing the product areas.
@@ -204,6 +214,8 @@ sources:
             description: The number of features/pages tagged under this product area. It's not entirely clear how this is calculated and should not be trusted 100%.
           - name: name
             description: Name of the product area.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: guide_event
         description: Table capturing events related to guides. Each row is a unique event around `guideAdvanced`, `guideSeen`, `guideDismissed`, `guideSnoozed`, `guideTimeout`, `guideActivity`.
@@ -242,6 +254,8 @@ sources:
             description: String identifying the browser and operating system on which the event was triggered.
           - name: visitor_id
             description: Foreign key referencing the `VISITOR` who triggered the event.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: guide_history
         description: Table capturing historical records of guides in pendo.
@@ -312,6 +326,8 @@ sources:
             description: The unique identifier for the current version of the feature.
           - name: state
             description: The current state of the guide. published, staged, draft, and disabled.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: guide_step_history
         description: Table associating guides with the steps they include. 
@@ -322,6 +338,8 @@ sources:
             description: Timestamp of when the guide was last updated. 
           - name: step_id
             description: Foreign key referencing the `STEP` that the guide includes. 
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: page_event
         description: Table capturing all recorded pageviews matching tagged pages.
@@ -350,6 +368,8 @@ sources:
             description: String identifying the browser and operating system on which the event was triggered.
           - name: visitor_id
             description: Foreign key referencing the `VISITOR` who triggered the event. 
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: page_history
         description: Table capturing the historical records of pages tagged in Pendo.
@@ -380,6 +400,8 @@ sources:
             description: The unique identifier for the current version of the page.
           - name: valid_through
             description: Timestamp that indicates when data was last processed.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: page_rule_history
         description: Table capturing historical records of rules associated with pages. 
@@ -394,6 +416,8 @@ sources:
             description: The url rule of the page, completely parsed out. 
           - name: rule
             description: Bare-bones URL rule of the page.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: user
         description: Table capturing internal Pendo users.
@@ -412,6 +436,8 @@ sources:
             description: Type of user. 
           - name: username
             description: Username of the user, typically their email.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: visitor_history
         description: Table capturing historical records of visitors.
@@ -442,6 +468,8 @@ sources:
             description: Timestamp of the user's last visit.
           - name: n_id
             description: Numeric id for the visitor.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: poll
         description: Table capturing polls administered via Pendo. 
@@ -461,6 +489,8 @@ sources:
             description: The content of the poll question.
           - name: reset_at
             description: The timestamp when the poll's data was last reset.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: poll_event
         description: Table capturing individual responses to polls.
@@ -505,6 +535,8 @@ sources:
             description: String identifying the browser and operating system on which the event was triggered.
           - name: visitor_id
             description: Foreign key referencing the `VISITOR` who triggered the event.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
       - name: visitor_account_history
         description: >
@@ -517,3 +549,5 @@ sources:
             description: Foreign key referencing the `VISITOR` associated with the account. 
           - name: visitor_last_updated_at
             description: Timestamp of when the visitor was last updated.
+          - name: _fivetran_synced
+            description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
