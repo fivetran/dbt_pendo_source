@@ -193,6 +193,8 @@ sources:
 
       - name: group
         description: Table capturing the product areas.
+        quoting: 
+          identifier: "{{ true if target.type == 'snowflake' else false }}"
         columns:
           - name: app_id
             description: Foreign key referencing the `APPLICATION` that the product area lives in.
