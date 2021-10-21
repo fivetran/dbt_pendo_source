@@ -193,6 +193,7 @@ sources:
 
       - name: group
         description: Table capturing the product areas.
+        identifier: "{{ 'GROUP' if target.type == 'snowflake' else 'group' }}"
         quoting: 
           identifier: "{{ true if target.type == 'snowflake' else false }}"
         columns:
