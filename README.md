@@ -24,7 +24,7 @@ Include in your `packages.yml`
 
 ```yaml
 packages:
-  - package: fivetran/microsoft_ads_source
+  - package: fivetran/pendo_source
     version: [">=0.2.0", "<0.3.0"]
 ```
 
