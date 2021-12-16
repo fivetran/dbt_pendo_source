@@ -1,11 +1,11 @@
 config-version: 2
 
 name: 'pendo_source'
-version: '0.1.1'
+version: '0.2.0'
 
-require-dbt-version: ">=0.20.0"
+require-dbt-version: [">=1.0.0", "<2.0.0"]
 
-models: 
+models:
   pendo_source:
     tmp:
       +materialized: view
@@ -31,7 +31,6 @@ vars:
     poll: "{{ source('pendo', 'poll') }}"
     poll_event: "{{ source('pendo', 'poll_event') }}"
     visitor_account_history: "{{ source('pendo', 'visitor_account_history') }}"
-    
     pendo__event_pass_through_columns: []
     pendo__feature_event_pass_through_columns: []
     pendo__page_event_pass_through_columns: []
