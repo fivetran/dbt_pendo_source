@@ -1,3 +1,11 @@
+# dbt_pendo_source v0.2.1
+
+## Under the Hood
+- The `valid_through` field within both the `stg_pendo__feature_history` and `stg_pendo__page_history` models have been updated to leverage the `dbt_utils.timestamp()` macro to be cast as timestamps. ([#10](https://github.com/fivetran/dbt_pendo_source/pull/10))
+
+## Contributors
+- [everettt](https://github.com/everettttt?tab=overview&from=2022-02-01&to=2022-02-11) ([#10](https://github.com/fivetran/dbt_pendo_source/pull/10))
+
 # dbt_pendo_source v0.2.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨
