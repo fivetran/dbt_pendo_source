@@ -1,17 +1,13 @@
 config-version: 2
-
 name: 'pendo_source'
-version: '0.2.1'
-
-require-dbt-version: [">=1.0.0", "<2.0.0"]
-
+version: '0.3.0'
+require-dbt-version: [">=1.2.0", "<2.0.0"]
 models:
   pendo_source:
     tmp:
       +materialized: view
     +materialized: table
     +schema: stg_pendo
-
 vars:
   pendo_source:
     account_history: "{{ source('pendo', 'account_history') }}"
