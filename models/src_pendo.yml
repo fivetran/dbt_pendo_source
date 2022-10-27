@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: pendo
-    database: "{% if target.type != '!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!'%}{{ var('pendo_database', target.database) }}{% endif %}"
+    database: "{% if target.type != 'spark'%}{{ var('pendo_database', target.database) }}{% endif %}"
     schema: "{{ var ('pendo_schema', 'pendo') }}"
 
     loader: fivetran

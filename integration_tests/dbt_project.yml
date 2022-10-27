@@ -64,7 +64,7 @@ seeds:
     group_data:
       +column_types:
         last_updated_by_user_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-        color: "{{ 'string' if target.name in ('bigquery', '!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!') else 'varchar' }}"
+        color: "{{ 'string' if target.name in ['spark','databricks'] else 'varchar' }}"
     user:
       +column_types:
         id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
