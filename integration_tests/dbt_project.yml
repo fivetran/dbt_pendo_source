@@ -11,6 +11,7 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
     
 vars:
+  pendo_schema: pendo_source_integration_tests
   pendo_source:
     account_history: "{{ ref('account_history') }}"
     application_history: "{{ ref('application_history') }}"
