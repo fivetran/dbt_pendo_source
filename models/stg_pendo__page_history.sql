@@ -33,7 +33,7 @@ final as (
         last_updated_by_user_id,
         root_version_id,
         stable_version_id,
-        cast(valid_through as {{ dbt_utils.type_timestamp() }}) as valid_through,
+        cast(valid_through as {{ dbt.type_timestamp() }}) as valid_through,
         _fivetran_synced
 
     from fields
