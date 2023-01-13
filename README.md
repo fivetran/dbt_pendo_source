@@ -101,7 +101,7 @@ vars:
 ```
 If the above variable doesn't work, there's a workaround where you need to update your source.yml for pendo to use the correct table:
 
-```
+```yml
 sources:
   - name: pendo
     database: <source_db>
@@ -114,7 +114,7 @@ sources:
 ```
 For Example: 
 
-```
+```yml
 version: 2
 
 sources:
