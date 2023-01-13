@@ -1,4 +1,7 @@
 # dbt_pendo_source v0.3.0
+[PR #14] includes the follow changes:
+- Updated readme.md for workaround if the pendo_<default_source_table_name>_identifer variable doesn't work for snowflake targets
+
 [PR #13](https://github.com/fivetran/dbt_pendo_source/pull/13) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
 - Dispatch update for dbt-utils to dbt-core cross-db macros migration. Specifically `{{ dbt_utils.<macro> }}` have been updated to `{{ dbt.<macro> }}` for the below macros:
