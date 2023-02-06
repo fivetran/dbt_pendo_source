@@ -99,6 +99,18 @@ vars:
   pendo_source:
     pendo_<default_source_table_name>_identifier: your_table_name 
 ```
+🚨 Snowflake Users
+You may need to provide the case-sensitive spelling of your source tables that are also Snowflake reserved words.
+
+In this package, this would apply to the `GROUP` source. If you are receiving errors for this source, include the following in your `dbt_project.yml` file:
+
+```yml
+vars:
+  pendo_group_identifier: '"GrouP"' # as an example, must include this quoting pattern and exact case
+
+quoting:
+  identifier: true
+```  
 
 </details>
 
