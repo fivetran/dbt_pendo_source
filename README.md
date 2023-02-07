@@ -97,11 +97,8 @@ If an individual source table has a different name than the package expects, add
 ```yml
 vars:
   pendo_source:
-    pendo_<default_source_table_name>_identifier: your_table_name 
+    pendo_<default_source_table_name>_identifier: "your_table_name" 
 ```
-
-If the above variable doesn't work, there's a workaround where you need to update your source.yml for pendo to use the correct table:
-
 🚨 Snowflake Users
 You may need to provide the case-sensitive spelling of your source tables that are also Snowflake reserved words.
 
@@ -109,37 +106,10 @@ In this package, this would apply to the `GROUP` source. If you are receiving er
 
 ```yml
 vars:
-  pendo_group_identifier: '"GrouP"' # as an example, must include this quoting pattern and exact case
+  pendo_group_identifier: '"GrouP"' # as an example, must include this quoting pattern and your exact casing
 
 quoting:
   identifier: true
-```  
-
-```yml
-sources:
-  - name: pendo
-    database: <source_db>
-    
-    tables:
-      - name: <table_name>
-        identifier: >
-          {% if target.type == 'snowflake' %}{{ var('pendo_<default_source_table_name>_identifier', '"<New Name>"') }}
-          {% else %}{{ var('pendo_<default_source_table_name>_identifier', '<table_name>') }}{% endif %}       
-```
-For Example: 
-
-```yml
-version: 2
-
-sources:
-  - name: pendo
-    database: edw_common_stg_db
-    
-    tables:
-      - name: group
-        identifier: >
-          {% if target.type == 'snowflake' %}{{ var('pendo_group_identifier', '"GROUP"') }}
-          {% else %}{{ var('pendo_group_identifier', 'group') }}{% endif %}        
 ```
 </details>
 
