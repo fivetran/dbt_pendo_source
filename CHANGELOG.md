@@ -1,3 +1,11 @@
+# dbt_pendo_source v0.3.1
+## Bug Fixes
+- Updated readme for workaround if the pendo_<default_source_table_name>_identifer is having trouble with Snowflake reserved words. ([#17](https://github.com/fivetran/dbt_pendo_source/pull/17))
+## Under the Hood
+- Small adjustments to whitespace control in `src_pendo.yml`. ([#17](https://github.com/fivetran/dbt_pendo_source/pull/17))
+## Contributors
+- @RichardThRivera ([#16](https://github.com/fivetran/dbt_pendo_source/pull/16))
+
 # dbt_pendo_source v0.3.0
 [PR #13](https://github.com/fivetran/dbt_pendo_source/pull/13) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
