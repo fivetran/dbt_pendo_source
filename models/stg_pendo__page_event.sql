@@ -34,6 +34,7 @@ final as (
         user_agent,
         visitor_id,
         _fivetran_synced,
+        _fivetran_id,
         {{ dbt_utils.generate_surrogate_key(['visitor_id', 'timestamp', 'account_id', 'server_name', 'page_id', 'user_agent', 'remote_ip']) }} as page_event_key
 
         --The below macro adds the fields defined within your pendo__page_event_pass_through_columns variable into the staging model
