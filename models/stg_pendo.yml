@@ -133,7 +133,7 @@ models:
       - name: visitor_id
         description: Foreign key referencing the `VISITOR` who triggered the event. 
       - name: feature_event_key
-        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'feature_id', 'remote_ip', 'user_agent'].
+        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'feature_id', 'remote_ip', 'user_agent', '_fivetran_id'].
         tests:
           - unique
           - not_null
@@ -340,7 +340,7 @@ models:
       - name: visitor_id
         description: Foreign key referencing the `VISITOR` who triggered the event. 
       - name: page_event_key
-        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'page_id', 'user_agent', 'remote_ip'].
+        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'page_id', 'user_agent', 'remote_ip', '_fivetran_id'].
         tests:
           - unique
           - not_null
