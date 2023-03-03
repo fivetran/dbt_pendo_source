@@ -4,9 +4,9 @@
 ## 🔧 Bug Fixes
 - Updated models `stg_pendo__feature_event` and `stg_pendo__page_event` to include `_fivetran_id`, which was recently added per the Fivetran Pendo Connector's [release notes](https://fivetran.com/docs/applications/pendo/changelog#december2022). ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
 
-## Features
+## ✨ Features
 - Update documentation for `_fivetran_id`. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
-- Revised readme instructions for successfully setting up the `GROUP` table with Snowflake. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
+- Revised source yaml and readme instructions for setting up the `GROUP` table with Snowflake. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
 
 # dbt_pendo_source v0.3.1
 ## Bug Fixes
