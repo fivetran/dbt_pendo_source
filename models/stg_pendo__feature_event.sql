@@ -33,6 +33,7 @@ final as (
         user_agent,
         visitor_id,
         _fivetran_synced,
+        _fivetran_id,
         {{ dbt_utils.generate_surrogate_key(
             ['visitor_id', 'timestamp', 'account_id', 'server_name', 'feature_id', 'remote_ip', 'user_agent', '_fivetran_id']
             ) }} as feature_event_key
