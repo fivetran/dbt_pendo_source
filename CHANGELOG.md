@@ -6,7 +6,7 @@
 
 ## ✨ Features
 - Update documentation for `_fivetran_id`. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
-- Revised source yaml and readme instructions for setting up the `GROUP` table with Snowflake. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
+- Revised source yml and readme instructions for setting up the `GROUP` table with Snowflake. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
 
 # dbt_pendo_source v0.3.1
 ## Bug Fixes
