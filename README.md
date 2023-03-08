@@ -38,7 +38,7 @@ Include the following pendo_source package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/pendo_source
-    version: [">=0.3.0", "<0.4.0"]
+    version: [">=0.4.0", "<0.5.0"]
 ```
 
 ## Step 3: Define database and schema variables
@@ -99,17 +99,27 @@ vars:
   pendo_source:
     pendo_<default_source_table_name>_identifier: "your_table_name" 
 ```
-#### 🚨 Snowflake Users
+#### 🚨 Snowflake Users 🚨
 You may need to provide the case-sensitive spelling of your source tables that are also Snowflake reserved words.
 
 In this package, this would apply to the `GROUP` source. If you are receiving errors for this source, include the following in your `dbt_project.yml` file:
-
 ```yml
 vars:
-  pendo_group_identifier: '"Group"' # as an example, must include this quoting pattern and your exact casing
+  pendo_group_identifier: '"Group"' # as an example, must include this quoting pattern and adjust for your exact casing
+```
 
-quoting:
-  identifier: true
+
+**Note!** if you have sources defined in one of your project's yml files, for example if you have a yml file with a `sources` level like in the following example, the prior code will not work. 
+
+Instead you will need to add the following where your group source table is defined in your yml:
+```yml
+sources:
+  tables:
+    - name: group 
+      # Add the below
+      identifier: GROUP # Or what your group table is named, being mindful of casing
+      quoting:
+        identifier: true
 ```
 </details>
 

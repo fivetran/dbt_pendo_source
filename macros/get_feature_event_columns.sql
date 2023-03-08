@@ -11,7 +11,8 @@
     {"name": "server_name", "datatype": dbt.type_string()},
     {"name": "timestamp", "datatype": dbt.type_timestamp()},
     {"name": "user_agent", "datatype": dbt.type_string()},
-    {"name": "visitor_id", "datatype": dbt.type_string()}
+    {"name": "visitor_id", "datatype": dbt.type_string()},
+    {"name": "_fivetran_id", "datatype": dbt.type_string()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('pendo__feature_event_pass_through_columns')) }}
