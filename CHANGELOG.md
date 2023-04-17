@@ -1,12 +1,15 @@
 # dbt_pendo_source v0.5.0
 ## 🚨 Breaking Changes 🚨:
+- Updated models `stg_pendo__guide_event`, `stg_pendo__poll_event`, and `stg_pendo__event` to add `_fivetran_id`, which was recently added per the Fivetran Pendo Connector's [March 2023 release notes](https://fivetran.com/docs/applications/pendo/changelog#march2023). ([#21](https://github.com/fivetran/dbt_pendo_source/pull/21))
 
-## 🔧 Bug Fixes
+## Features
+- Update documentation for `_fivetran_id`. ([#21](https://github.com/fivetran/dbt_pendo_source/pull/21))
+
 # dbt_pendo_source v0.4.0
 
 ## 🚨 Breaking Changes 🚨:
 ## 🔧 Bug Fixes
-- Updated models `stg_pendo__feature_event` and `stg_pendo__page_event` to include `_fivetran_id`, which was recently added per the Fivetran Pendo Connector's [release notes](https://fivetran.com/docs/applications/pendo/changelog#december2022). ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
+- Updated models `stg_pendo__feature_event` and `stg_pendo__page_event` to include `_fivetran_id`, which was recently added per the Fivetran Pendo Connector's [December 2022 release notes](https://fivetran.com/docs/applications/pendo/changelog#december2022). ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
 
 ## ✨ Features
 - Update documentation for `_fivetran_id`. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
