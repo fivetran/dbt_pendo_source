@@ -1,3 +1,7 @@
+# dbt_pendo_source v0.5.0
+## 🚨 Breaking Changes 🚨:
+
+## 🔧 Bug Fixes
 # dbt_pendo_source v0.4.0
 
 ## 🚨 Breaking Changes 🚨:
