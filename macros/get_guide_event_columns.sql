@@ -18,7 +18,8 @@
     {"name": "type", "datatype": dbt.type_string()},
     {"name": "url", "datatype": dbt.type_string()},
     {"name": "user_agent", "datatype": dbt.type_string()},
-    {"name": "visitor_id", "datatype": dbt.type_string()}
+    {"name": "visitor_id", "datatype": dbt.type_string()},
+    {"name": "_fivetran_id", "datatype": dbt.type_string()}
 ] %}
 
 {{ return(columns) }}

@@ -98,9 +98,11 @@ models:
       - name: user_agent
         description: String identifying the browser and operating system on which the event was triggered.
       - name: visitor_id
-        description: Foreign key referencing the `VISITOR` who triggered the event. 
+        description: Foreign key referencing the `VISITOR` who triggered the event.
+      - name: _fivetran_id
+        description: Fivetran created id hashed on the `property_*` and `param_*` fields.
       - name: event_key
-        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'user_agent', 'server_name', 'remote_ip'].
+        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'user_agent', 'server_name', 'remote_ip', '_fivetran_id'].
         tests:
           - unique
           - not_null
@@ -239,8 +241,10 @@ models:
         description: String identifying the browser and operating system on which the event was triggered.
       - name: visitor_id
         description: Foreign key referencing the `VISITOR` who triggered the event.
+      - name: _fivetran_id
+        description: Fivetran created primary key.
       - name: guide_event_key
-        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'guide_id', 'user_agent', 'remote_ip'].
+        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'guide_id', 'user_agent', 'remote_ip', '_fivetran_id']
         tests:
           - unique
           - not_null
@@ -528,8 +532,10 @@ models:
         description: String identifying the browser and operating system on which the event was triggered.
       - name: visitor_id
         description: Foreign key referencing the `VISITOR` who triggered the event.
+      - name: _fivetran_id
+        description: Fivetran created primary key.
       - name: poll_event_key
-        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'poll_id', 'guide_id', 'user_agent', 'remote_ip'].
+        description: Unique key hashed on ['visitor_id', 'timestamp', 'account_id', 'server_name', 'poll_id', 'guide_id', 'user_agent', 'remote_ip', '_fivetran_id'].
         tests:
           - unique
           - not_null
