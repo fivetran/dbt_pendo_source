@@ -1,15 +1,27 @@
 # dbt_pendo_source v0.5.0
+PR [#21](https://github.com/fivetran/dbt_pendo_source/pull/21) includes the following updates:
 ## 🚨 Breaking Changes 🚨:
-- Updated models `stg_pendo__guide_event`, `stg_pendo__poll_event`, and `stg_pendo__event` to add `_fivetran_id`, which was recently added per the Fivetran Pendo Connector's [March 2023 release notes](https://fivetran.com/docs/applications/pendo/changelog#march2023). ([#21](https://github.com/fivetran/dbt_pendo_source/pull/21))
+- Updated the following models to include the new `_fivetran_id` field, which was recently added per the Fivetran Pendo Connector's [March 2023 release notes](https://fivetran.com/docs/applications/pendo/changelog#march2023):
+	  - `stg_pendo__guide_event`
+	  - `stg_pendo__poll_event`
+	  - `stg_pendo__event`
+- `_fivetran_id` has also been added to the hashing formula used in the following fields:
+  - `event_key` in `stg_pendo__guide_event`
+  - `guide_event_key` in `stg_pendo__poll_event`
+  - `poll_event_key` in `stg_pendo__event`
+- These breaking changes persist to the transform package. (See the [Transform CHANGELOG](https://github.com/fivetran/dbt_pendo_source/blob/main/CHANGELOG.md) for more details.)
 
 ## Features
-- Update documentation for `_fivetran_id`. ([#21](https://github.com/fivetran/dbt_pendo_source/pull/21))
+- Updated documentation for `_fivetran_id`.
 
 # dbt_pendo_source v0.4.0
 
 ## 🚨 Breaking Changes 🚨:
 ## 🔧 Bug Fixes
 - Updated models `stg_pendo__feature_event` and `stg_pendo__page_event` to include `_fivetran_id`, which was recently added per the Fivetran Pendo Connector's [December 2022 release notes](https://fivetran.com/docs/applications/pendo/changelog#december2022). ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))
+- `_fivetran_id` has also been added to the hashing formula used in the following fields:
+  - `feature_event_key` in `stg_pendo__feature_event`
+  - `page_event_key` in `stg_page__event`
 
 ## ✨ Features
 - Update documentation for `_fivetran_id`. ([#19](https://github.com/fivetran/dbt_pendo_source/pull/19))

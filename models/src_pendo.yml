@@ -131,6 +131,8 @@ sources:
             description: Foreign key referencing the `VISITOR` who triggered the event. 
           - name: _fivetran_synced
             description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
+          - name: _fivetran_id
+            description: Fivetran created id hashed on the `property_*` and `param_*` fields.
 
       - name: feature_event
         identifier: "{{ var('pendo_feature_event_identifier', 'feature_event')}}"
@@ -158,6 +160,8 @@ sources:
             description: Foreign key referencing the `VISITOR` who triggered the event. 
           - name: _fivetran_synced
             description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
+          - name: _fivetran_id
+            description: Fivetran created id hashed on the `property_*` and `param_*` fields.
 
       - name: feature_history
         identifier: "{{ var('pendo_feature_history_identifier', 'feature_history')}}"
@@ -267,6 +271,8 @@ sources:
             description: Foreign key referencing the `VISITOR` who triggered the event.
           - name: _fivetran_synced
             description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
+          - name: _fivetran_id
+            description: Fivetran created primary key.
 
       - name: guide_history
         identifier: "{{ var('pendo_guide_history_identifier', 'guide_history')}}"
@@ -384,6 +390,8 @@ sources:
             description: Foreign key referencing the `VISITOR` who triggered the event. 
           - name: _fivetran_synced
             description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
+          - name: _fivetran_id
+            description: Fivetran created id hashed on the `param_*` fields.
 
       - name: page_history
         identifier: "{{ var('pendo_page_history_identifier', 'page_history')}}"
@@ -557,6 +565,8 @@ sources:
             description: Foreign key referencing the `VISITOR` who triggered the event.
           - name: _fivetran_synced
             description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
+          - name: _fivetran_id
+            description: Fivetran created primary key.
 
       - name: visitor_account_history
         identifier: "{{ var('pendo_visitor_account_history_identifier', 'visitor_account_history')}}"
