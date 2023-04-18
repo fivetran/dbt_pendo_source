@@ -12,7 +12,7 @@ PR [#21](https://github.com/fivetran/dbt_pendo_source/pull/21) includes the foll
 - These breaking changes persist to the transform package. (See the [Transform CHANGELOG](https://github.com/fivetran/dbt_pendo_source/blob/main/CHANGELOG.md) for more details.)
 
 ## Features
-- Updated documentation for `_fivetran_id`.
+- Updated documentation for new `_fivetran_id` field.
 
 # dbt_pendo_source v0.4.0
 
