@@ -33,7 +33,7 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 ## Step 2: Install the package (skip if also using the `pendo` transformation package)
-If you  are **not** using the [Pendo transformation package](https://github.com/fivetran/dbt_pendo), include the the following pendo_source package version in your `packages.yml` file.
+If you are **not** using the [Pendo transformation package](https://github.com/fivetran/dbt_pendo), include the the following `pendo_source` package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
