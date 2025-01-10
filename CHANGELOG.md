@@ -1,3 +1,8 @@
+# dbt_pendo_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#27](https://github.com/fivetran/dbt_pendo_source/pull/27))
+
 # dbt_pendo_source v0.UPDATE.UPDATE
 
  ## Under the Hood:
