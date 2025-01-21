@@ -1,4 +1,6 @@
-<p align="center">
+# Pendo Source dbt Package ([Docs](https://fivetran.github.io/dbt_pendo_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_pendo_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,7 +12,6 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Pendo Source dbt Package ([Docs](https://fivetran.github.io/dbt_pendo_source/))
 ## What does this dbt package do?
 - Materializes [Pendo staging tables](https://fivetran.github.io/dbt_pendo_source/#!/overview/pendo_source/models/?g_v=1) which beverage data in the format described by [this ERD](https://fivetran.com/docs/applications/pendo/#schemainformation). These staging tables clean, test, and prepare your Pendo data from [Fivetran's connector](https://fivetran.com/docs/applications/pendo) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
@@ -22,7 +23,7 @@
 ## How do I use the dbt package?
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
-- At least one Fivetran Pendo connector syncing data into your destination.
+- At least one Fivetran Pendo connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 #### Databricks Additional Configuration
