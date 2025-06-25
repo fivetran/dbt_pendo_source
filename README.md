@@ -15,7 +15,7 @@
 ## What does this dbt package do?
 - Materializes [Pendo staging tables](https://fivetran.github.io/dbt_pendo_source/#!/overview/pendo_source/models/?g_v=1) which beverage data in the format described by [this ERD](https://fivetran.com/docs/applications/pendo/#schemainformation). These staging tables clean, test, and prepare your Pendo data from [Fivetran's connector](https://fivetran.com/docs/applications/pendo) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
-  - Adds freshness tests to source data
+  - Adds freshness tests to source data. dbt Core >= 1.9.6 is required to run freshness tests out of the box.
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Pendo data through the [dbt docs site](https://fivetran.github.io/dbt_pendo_source/).
 - These tables are designed to work simultaneously with our [Pendo transformation package](https://github.com/fivetran/dbt_pendo).
@@ -39,7 +39,7 @@ If you are **not** using the [Pendo transformation package](https://github.com/f
 ```yaml
 packages:
   - package: fivetran/pendo_source
-    version: [">=0.5.0", "<0.6.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables

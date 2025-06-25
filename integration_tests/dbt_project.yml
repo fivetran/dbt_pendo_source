@@ -76,3 +76,6 @@ seeds:
     visitor_history:
       +column_types:
         id_hash: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
+
+flags:
+  send_anonymous_usage_stats: False
