@@ -20,5 +20,6 @@ dbt seed --target "$db" --full-refresh
 dbt compile --target "$db"
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
+dbt source freshness --target "$db" || echo "...Only verifying freshness runs…"
 
 dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"

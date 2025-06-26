@@ -1,13 +1,33 @@
-# dbt_pendo_source version.version
+# dbt_pendo_source v0.6.0
+
+[PR #29](https://github.com/fivetran/dbt_pendo_source/pull/29) includes the following updates:
+
+## Breaking Change for dbt Core < 1.9.6
+> *Note: This is not relevant to Fivetran Quickstart users.*
+
+Migrated `freshness` from a top-level source property to a source `config` in alignment with [recent updates](https://github.com/dbt-labs/dbt-core/issues/11506) from dbt Core. This will resolve the following deprecation warning that users running dbt >= 1.9.6 may have received:
+
+```
+[WARNING]: Deprecated functionality
+Found `freshness` as a top-level property of `pendo` in file
+`models/src_pendo.yml`. The `freshness` top-level property should be moved
+into the `config` of `pendo`.
+```
+
+**IMPORTANT:** Users running dbt Core < 1.9.6 will not be able to utilize freshness tests in this release or any subsequent releases, as older versions of dbt will not recognize freshness as a source `config` and therefore not run the tests.
+
+If you are using dbt Core < 1.9.6 and want to continue running Pendo Source freshness tests, please elect **one** of the following options:
+  1. (Recommended) Upgrade to dbt Core >= 1.9.6
+  2. Do not upgrade your installed version of the `pendo_source` package. Pin your dependency on v0.5.0 in your `packages.yml` file.
+  3. Utilize a dbt [override](https://docs.getdbt.com/reference/resource-properties/overrides) to overwrite the package's `pendo` source and apply freshness via the previous release top-level property route. This will require you to copy and paste the entirety of the previous release `src_pendo.yml` file and add an `overrides: pendo_source` property.
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#27](https://github.com/fivetran/dbt_pendo_source/pull/27))
 
-# dbt_pendo_source v0.UPDATE.UPDATE
-
- ## Under the Hood:
+## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).
+- Updates to ensure integration tests use latest version of dbt.
 
 # dbt_pendo_source v0.5.0
 PR [#21](https://github.com/fivetran/dbt_pendo_source/pull/21) includes the following updates:
